@@ -23,6 +23,10 @@ Using multiple keywords and `-` to exclude keywords:
     // stringMatch(stringToCheck, pattern, options)
     stringMatch('A good day for hot dogs and smoothies', '"hot dogs" smoothies -burgers -"cold beer"') // returns true
 
+Notes:
+
+- If `pattern` is not a string, `stringMatch` just return truthiness of `pattern`.
+
 ## Options
 
     defaultOptions = {

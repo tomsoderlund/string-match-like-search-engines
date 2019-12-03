@@ -15,6 +15,7 @@ const defaultOptions = {
 }
 
 module.exports = (stringToCheck, pattern, options) => {
+  if (typeof pattern !== 'string') return !!pattern
   const newOptions = Object.assign({}, defaultOptions, options)
   const { stringDelimiter, caseSensitive } = newOptions
   // Parse the pattern
