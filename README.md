@@ -8,9 +8,9 @@ Simple:
 
     "hot dogs"
 
-Advanced:
+Using multiple keywords and `-` to exclude keywords:
 
-    "hot dogs" -cats mouse -"water guns"
+    "hot dogs" smoothies -burgers -"cold beer"
 
 ## Install
 
@@ -21,7 +21,7 @@ Advanced:
     import stringMatch from 'string-match-like-search-engines'
 
     // stringMatch(stringToCheck, pattern, options)
-    stringMatch('This was a mouse day, not a cats day', '"hot dogs" -cats mouse -"water guns"') // returns true
+    stringMatch('A good day for hot dogs and smoothies', '"hot dogs" smoothies -burgers -"cold beer"') // returns true
 
 ## Options
 

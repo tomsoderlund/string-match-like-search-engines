@@ -4,8 +4,8 @@
  * @module stringMatch
  * @author Tom Söderlund
 
-Examples:
-  '"hot dogs" -cats mouse -"water guns"'
+Example:
+  stringMatch('A good day for hot dogs and smoothies', '"hot dogs" smoothies -burgers -"cold beer"')
 
  */
 
