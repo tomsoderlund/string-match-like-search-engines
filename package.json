@@ -1,0 +1,8 @@
+{
+  "name": "string-match-like-search-engines",
+  "version": "1.0.0",
+  "description": "Google/Bing search style string matching",
+  "main": "stringMatch.js",
+  "author": "Tom Söderlund <tom@tomsoderlund.com>",
+  "license": "MIT"
+}
