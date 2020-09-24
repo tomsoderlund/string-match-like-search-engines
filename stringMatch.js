@@ -7,19 +7,19 @@
 Example:
   stringMatch('A good day for hot dogs and smoothies', '"hot dogs" smoothies -burgers -"cold beer"')
 
- */
+*/
 
 const defaultOptions = {
   stringDelimiter: '"',
   caseSensitive: false
 }
 
-module.exports = (stringToCheck, pattern, options) => {
+module.exports = function stringMatch (stringToCheck, pattern, options) {
   if (typeof pattern !== 'string') return !!pattern
   const newOptions = Object.assign({}, defaultOptions, options)
   const { stringDelimiter, caseSensitive } = newOptions
   // Parse the pattern
-  let patternArray = []; let phrase = ''; let stringOpen = false; let exclude = false
+  const patternArray = []; let phrase = ''; let stringOpen = false; let exclude = false
   for (let i = 0; i < pattern.length; i++) {
     switch (pattern[i]) {
       case stringDelimiter:
@@ -46,9 +46,10 @@ module.exports = (stringToCheck, pattern, options) => {
   if (phrase !== '') patternArray.push({ phrase, exclude })
   // Check if the string matches all patterns
   const stringToCheckFixed = caseSensitive ? stringToCheck : stringToCheck.toLowerCase()
-  for (let p in patternArray) {
-    const doesInclude = stringToCheckFixed.includes(patternArray[p].phrase)
-    const patternOk = patternArray[p].exclude ? !doesInclude : doesInclude
+  for (const patternObject of patternArray) {
+    const phraseFixed = caseSensitive ? patternObject.phrase : patternObject.phrase.toLowerCase()
+    const doesInclude = stringToCheckFixed.includes(phraseFixed)
+    const patternOk = patternObject.exclude ? !doesInclude : doesInclude
     if (!patternOk) return false
   }
   return true
