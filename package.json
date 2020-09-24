@@ -4,5 +4,24 @@
   "description": "Google/Bing search style string matching",
   "main": "stringMatch.js",
   "author": "Tom Söderlund <tom@tomsoderlund.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "files": [
+    "stringMatch.js"
+  ],
+  "scripts": {
+    "test": "jasmine",
+    "lint": "standard",
+    "fix": "standard --fix"
+  },
+  "standard": {
+    "globals": [
+      "describe",
+      "expect",
+      "it"
+    ]
+  },
+  "devDependencies": {
+    "jasmine": "^3.6.1",
+    "standard": "^14.3.4"
+  }
 }
