@@ -1,7 +1,22 @@
 const stringMatch = require('./stringMatch')
 
 describe('stringMatch.js', function () {
-  it('should stringMatch “A good day for hot dogs and smoothies”', function () {
+  it('should stringMatch “hot dogs”', function () {
+    const result = stringMatch('A good day for hot dogs and smoothies', 'hot dogs')
+    expect(result).toEqual(true)
+  })
+
+  it('should stringMatch “dog hot”', function () {
+    const result = stringMatch('A good day for hot dogs and smoothies', 'dog hot')
+    expect(result).toEqual(true)
+  })
+
+  it('should stringMatch “hot cats”', function () {
+    const result = stringMatch('A good day for hot dogs and smoothies', 'hot cats')
+    expect(result).toEqual(false)
+  })
+
+  it('should stringMatch “"hot dogs" smoothies -burgers -"cold beer"”', function () {
     const result = stringMatch('A good day for hot dogs and smoothies', '"hot dogs" smoothies -burgers -"cold beer"')
     expect(result).toEqual(true)
   })
