@@ -27,6 +27,12 @@ describe('stringMatch.js', function () {
     expect(result).toEqual(true)
   })
 
+  // Words not next to each other, but not just match one word
+  it('should stringMatch “recycl e-commerce” not next to each other', function () {
+    const result = stringMatch('Can e-commerce ever be sustainable?', 'recycl e-commerce')
+    expect(result).toEqual(false)
+  })
+
   // Hyphen inside word
   it('should stringMatch “eco-friendly”', function () {
     const result = stringMatch('This was a eco-friendly encounter', 'eco-friendly')
